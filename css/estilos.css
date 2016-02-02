@@ -1,0 +1,81 @@
+.celdaLatLong {
+    text-align: center;
+    width: 33%;
+}
+
+.enlaceLang {
+		color: #ffffff;
+}
+
+#enlaceGeonames{
+	font-size: 1.3em;	
+	color: "#00ff00";
+}
+
+#imgGeonames{
+	width: 40px;
+	height: 40px;
+}
+
+#cellGeoNames {
+	background-color: #D7FFFD;
+	border-color: #004080;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.alertCentered {
+		text-align: center;
+}
+
+.h1ErrorIE8 {
+text-align: center;
+}
+
+#map-canvas {
+    height: 100%;
+    border-color: blue;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #d7d7d7;
+}
+
+.angular-google-map-container {
+    height: 400px;
+}
+
+.jumbotron {
+    padding: 0.5em 0.6em;
+    h1 {
+        font-size: 1.4em;
+    }
+    p {
+        font-size: 1.1em;
+    }
+ }
+
+.geonamesListOK {
+	background-color: #cdfede;
+	color: #000000;
+    	font-style: italic;
+}
+
+.geonamesListNO {
+	background-color: #fedbcf;
+	color: #000000;
+	font-style: italic;
+}
+
+#lblGoogle{
+	background-color: #86c5f9;
+	color: #000000;
+	font-weight: 500;
+    	font-size: 1.2em;
+}
+
+.centerContainer {
+    left:auto;
+    right:auto
+}
+
+}

@@ -1,0 +1,175 @@
+<div class="centerContainer">
+  <!-- Important- "UAdmController" is used by this template but has been already referenced in the Route -->
+  <alert class = "alertCentered" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}
+  		<a ng-show="lnkNoVisible" href="http://www.iablog.info/geonamesQW" target="_blank">{{ 'LOCNAME.DEMO_LINK' | translate }}</a>
+  </alert>
+  <div class="col-md-offset-1">
+    <header>
+        <h3>{{'UADM.TITLE' | translate}}</h3>
+    </header>
+    <hr>
+
+    <!-- NIVEL ADM 0 -->
+    <section name="region_selector">
+        <div class="form-inline">
+            <label for="region_code" class="col-md-4 control-label">{{'UADM.SELECT_CONTINENT' | translate}}</label>
+            <select ng-disabled="userNoSaved" class="form-control" ng-model="region_model" ng-change="loadCountries()">
+                <!-- Los valores son los ID de cada continente en Geonames-->
+                <option value="6255148" selected="selected">{{'UADM.LST_EUROPE' | translate}}</option>
+                <option value="6255149">{{'UADM.LST_NORTH_AM' | translate}}</option>
+                <option value="6255150">{{'UADM.LST_SOUTH_AM' | translate}}</option>
+                <option value="6255147">{{'UADM.LST_ASIA' | translate}}</option>
+                <option value="6255146">{{'UADM.LST_AFRICA' | translate}}</option>
+                <option value="6255151">{{'UADM.LST_OCEANIA' | translate}}</option>
+            </select>
+        </div>
+    </section>
+    <hr>
+
+
+    <section name="country_selector">
+        <!-- DIV PAIS-->
+        <div class="col-md-12">
+            <!-- FORMULARIO -->
+            <div class="form-inline">
+                <label for="country_code" class="col-md-5 control-label">{{'UADM.SELECT_LEVEL' | translate}} 0</label>
+                <select select ng-disabled="userNoSaved" class="col-md-5 form_control {{countryClassAdd}}" ng-model="country_model" ng-options="country.name for country in country_list.geonames" ng-change="loadAdmLevel1()">
+                    <option style="display:none" value="">{{txtLocCountry}}</option>
+                </select>
+                <br/>
+                <br/>
+            </div>
+        </div>
+        <br/>
+    </section>
+    <hr/>
+
+    <!-- NIVEL ADM 1 -->
+    <section name="admlevel1_selector">
+        <!-- DIV NIVEL ADM 1-->
+        <div class="col-md-12">
+            <!-- FORMULARIO -->
+            <div class="form-inline">
+                <label for="admlevel1_code" class="col-md-5 control-label">{{'UADM.SELECT_LEVEL' | translate}} 1</label>
+                <select select ng-disabled="userNoSaved" class="col-md-5 form_control {{admLevel1ClassAdd}}" ng-model="admlevel1_model" ng-options="admLevel1Geo.name for admLevel1Geo in admLevel1_list.geonames" ng-change="loadAdmLevel2()">
+                    <option style="display:none" value="">{{txtLocAdm1}}</option>
+                </select>
+                <br/>
+                <br/>
+            </div>
+            <!-- TABLA -->
+            <div class="col-md-7 col-md-offset-2">
+                <table class="table table-bordered">
+                    <tr>
+                      <th scope="col" class="text-center">{{'UADM.ID' | translate}}</th>
+                      <th scope="col" class="text-center">{{'UADM.NAME' | translate}}</th>
+                        <th scope="col" class="text-center">{{'UADM.LATITUDE' | translate}}</th>
+                        <th scope="col" class="text-center">{{'UADM.LONGITUDE' | translate}}</th>
+                        <th scope="col" class="text-center">{{'UADM.MAP' | translate}}</th>
+                    </tr>
+                    <tr>
+                      <td class="text-center col-mod-1">{{idAdmLevel1}}</td>
+                      <td class="text-center col-mod-3">{{nameAdmLevel1}}</td>
+                        <td class="text-center col-mod-1">{{latAdmLevel1}}</td>
+                        <td class="text-center col-mod-1">{{longAdmLevel1}}</td>
+                        <td class="text-center col-mod-1">
+                            <input type="radio" name="radio" id="btnSeleccionar" ng-model="coord" value="coordAdmLevel1" ng-change="refreshMap()" ng-disabled="chkAdmLevel1" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br/>
+    </section>
+    <hr/>
+
+    <!-- NIVEL ADM 2 -->
+    <section name="admlevel2_selector">
+        <!-- DIV NIVEL ADM 2-->
+        <div class="col-md-12">
+            <!-- FORMULARIO -->
+            <div class="form-inline">
+                <label for="admlevel2_code" class="col-md-5 control-label">{{'UADM.SELECT_LEVEL' | translate}} 2</label>
+                <select select ng-disabled="userNoSaved" class="col-md-5 form_control {{admLevel2ClassAdd}}" ng-model="admlevel2_model" ng-options="admLevel2Geo.name for admLevel2Geo in admLevel2_list.geonames" ng-change="loadAdmLevel3()">
+                    <option style="display:none" value="">{{txtLocAdm2}}</option>
+                </select>
+                <br/>
+                <br/>
+            </div>
+            <!-- TABLA -->
+            <div class="col-md-7 col-md-offset-2">
+                <table class="table table-bordered">
+                    <tr>
+                      <th scope="col" class="text-center">{{'UADM.ID' | translate}}</th>
+                      <th scope="col" class="text-center">{{'UADM.NAME' | translate}}</th>
+                        <th scope="col" class="text-center">{{'UADM.LATITUDE' | translate}}</th>
+                        <th scope="col" class="text-center">{{'UADM.LONGITUDE' | translate}}</th>
+                        <th scope="col" class="text-center">{{'UADM.MAP' | translate}}</th>
+                    </tr>
+                    <tr>
+                      <td class="text-center col-mod-1">{{idAdmLevel2}}</td>
+                      <td class="text-center col-mod-3">{{nameAdmLevel2}}</td>
+                        <td class="text-center col-mod-1">{{latAdmLevel2}}</td>
+                        <td class="text-center col-mod-1">{{longAdmLevel2}}</td>
+                        <td class="text-center col-mod-1">
+                            <input type="radio" name="radio" id="btnSeleccionar" ng-model="coord" value="coordAdmLevel2" ng-change="refreshMap()" ng-disabled="chkAdmLevel2" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <hr/>
+
+    <!-- NIVEL ADM 3 -->
+    <section name="admlevel3_selector">
+        <!-- DIV NIVEL ADM 3-->
+        <div class="col-md-12">
+            <!-- FORMULARIO -->
+            <div class="form-inline">
+                <label for="admlevel3_code" class="col-md-5 control-label">{{'UADM.SELECT_LEVEL' | translate}} 3</label>
+                <select select ng-disabled="userNoSaved" class="col-md-5 form_control  {{admLevel3ClassAdd}}" ng-model="admlevel3_model" ng-options="admLevel3Geo.name for admLevel3Geo in admLevel3_list.geonames" ng-change="loadAdmLevelProperties()">
+                    <option style="display:none" value="">{{txtLocAdm3}}</option>
+                </select>
+                <br/>
+                <br/>
+            </div>
+            <!-- TABLA -->
+            <div class="col-md-7 col-md-offset-2">
+                <table class="table table-bordered">
+                    <tr>
+                      <th scope="col" class="text-center">{{'UADM.ID' | translate}}</th>
+                      <th scope="col" class="text-center">{{'UADM.NAME' | translate}}</th>
+                        <th scope="col" class="text-center">{{'UADM.LATITUDE' | translate}}</th>
+                        <th scope="col" class="text-center">{{'UADM.LONGITUDE' | translate}}</th>
+                        <th scope="col" class="text-center">{{'UADM.MAP' | translate}}</th>
+                    </tr>
+                    <tr>
+                      <td class="text-center col-mod-1">{{idAdmLevel3}}</td>
+                      <td class="text-center col-mod-3">{{nameAdmLevel3}}</td>
+                        <td class="text-center col-mod-1">{{latAdmLevel3}}</td>
+                        <td class="text-center col-mod-1">{{longAdmLevel3}}</td>
+                        <td class="text-center col-mod-1">
+                            <input type="radio" name="radio" id="btnSeleccionar" ng-model="coord" value="coordAdmLevel3" ng-change="refreshMap()" ng-disabled="chkAdmLevel3" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <hr/>
+
+    <!-- MAPA -->
+    <div class="container">
+        <section name="locator_map">
+            <div class="col-md-7 col-md-offset-1">
+                <google-map center="map.center" zoom="map.zoom" draggable="true" options="options" refresh="boolRefresh">
+                    <marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></marker>
+                </google-map>
+                <br/>
+                <br/>
+            </div>
+        </section>
+    </div>
+</div>
+</div>

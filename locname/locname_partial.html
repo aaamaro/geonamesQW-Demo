@@ -1,0 +1,104 @@
+<div class="centerContainer">
+  <!-- Important- "LocNameController" is used by this template but has been already referenced in the Route -->
+  <alert class = "alertCentered" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}
+  	<a ng-show="lnkVisible" href="http://www.iablog.info/geonamesQW" target="_blank">{{ 'LOCNAME.DEMO_LINK' | translate }}</a>
+  	</alert>
+ <div class= "col-md-offset-1">
+    <header>
+        <h3> {{'LOCNAME.TITLE' | translate}} </h3>
+    </header>
+    <div class="col-md-10 ">
+        <form role="form" draggable="true">
+            <div class="form-group">
+                <br/>
+                <label class="label" id="lblGoogle" for="frmLocName">{{ 'LOCNAME.LBL_GOOGLE_SEARCH' | translate }}</label>
+                <br/>
+                <br/>
+                <label class="control-label" for="frmLocName">
+                    {{'LOCNAME.GOOGLE_TXT' | translate}}
+                </label>
+
+                <!--Autocomplete de Google-->
+                <input select ng-disabled="userNoSaved" class="form-control" id="frmLocName" placeholder={{initialTxtGoogle}} type="text" gm-places-autocomplete="autocompleteOptions" ng-model="autocompleteModel"></input>
+                <button type="button" class="btn btn-default btn-xs" ng-click="deleteTxtGoogle()">{{'LOCNAME.RESET_BTN' | translate}}</button>
+
+                <br/><br/>
+                <label class="control-label" for="frmLocName">
+                    {{'LOCNAME.LATITUDE' | translate}} {{latGoogle}} - {{'LOCNAME.LONGITUDE' | translate}}{{lngGoogle}}</label>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="container">
+            <section name="locator_map">
+                <div class="col-md-7">
+                    <google-map center="map.center" zoom="map.zoom" draggable="true" options="options" refresh="boolRefresh">
+                        <marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></marker>
+                    </google-map>
+
+                    <br/>
+                    <br/>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class=" col-md-10">
+        <div class="form-group">
+            <label class="label" id="lblGoogle" for="frmLocName">{{'LOCNAME.GEONAME_LBL' | translate}}</label>
+            <br/>
+            <br/>
+
+            <select select ng-disabled="userNoSaved" class="col-md-8 form_control {{locListClassAdd}}" ng-model="placesList_model" ng-options="place.name for place in places_list" ng-change="getGeonameByID()">
+                <option style="display:none" value="">{{txtLocalizaciones}}</option>
+            </select>
+        </div>
+
+        <div class=" row col-md-10">
+                <table class="table table-hover">
+                    <tr>
+                        <th colspan="2">{{'LOCNAME.GEONAMES_TXT' | translate}}</th>
+                    </tr>
+                    <tr>
+                        <td>{{'LOCNAME.ID' | translate}}</td>
+                        <td>{{geonameID}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{'LOCNAME.NAME' | translate}}</td>
+                        <td>{{geonameName}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{'LOCNAME.LATITUDE' | translate}}</td>
+                        <td>{{geonameLat}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{'LOCNAME.LONGITUDE' | translate}}</td>
+                        <td>{{geonameLng}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{'LOCNAME.CODLEVEL1' | translate}}</td>
+                        <td>{{geonameUACode1}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{'LOCNAME.CODLEVEL2' | translate}}</td>
+                        <td>{{geonameUACode2}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{'LOCNAME.CODLEVEL3' | translate}}</td>
+                        <td>{{geonameUACode3}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{'LOCNAME.CODLEVEL4' | translate}}</td>
+                        <td>{{geonameUACode4}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{'LOCNAME.CODLEVEL5' | translate}}</td>
+                        <td>{{geonameUACode5}}</td>
+                    </tr>
+                </table>
+        </div>
+<br/>
+<br/>
+    </div>
+</div>
+</div>

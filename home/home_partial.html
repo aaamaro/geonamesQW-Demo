@@ -1,0 +1,98 @@
+<div class="section">
+	<div class="centerContainer">
+  <!-- Important- "HomeController" is used by this template but has been already referenced in the Route -->
+  <alert class = "alertCentered" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}
+  	<a href="http://www.iablog.info/geonamesQW" target="_blank">{{ 'LOCNAME.DEMO_LINK' | translate }}</a>
+  	</alert>
+		<div class="row col-md-12">
+			<h3>{{'HOME.TITLE1' | translate}}</h3>
+			<p>
+				{{'HOME.TITLE2' | translate}}
+			</p>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-hover table-striped">
+					<thead>
+						<tr>
+							<th>{{'HOME.TBL_CODE' | translate}}</th>
+							<th>{{'HOME.TBL_NAME' | translate}}</th>
+							<th>{{'HOME.TBL_URL' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{'HOME.TBL_A1' | translate}}</td>
+							<td>{{'HOME.TBL_A1Name' | translate}}</td>
+							<td><a target="_blank" href="http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691">http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691</a></td>
+						</tr>
+						<tr>
+							<td>{{'HOME.TBL_A2' | translate}}</td>
+							<td>{{'HOME.TBL_A2Name' | translate}}</td>
+							<td><a target="_blank" href="http://www.unsalb.org">http://www.unsalb.org</a></td>
+						</tr>
+						<tr>
+							<td>{{'HOME.TBL_A3' | translate}}</td>
+							<td>{{'HOME.TBL_A3Name' | translate}}</td>
+							<td><a target="_blank"  href="http://www.gadm.org">http://www.gadm.org</a></td>
+						</tr>
+						<tr>
+							<td>{{'HOME.TBL_A4' | translate}}</td>
+							<td>{{'HOME.TBL_A4Name' | translate}}</td>
+							<td><a target="_blank" href="http://www.iso.org/iso/country_codes.htm">http://www.iso.org/iso/country_codes.htm</a></td>
+						</tr>
+						<tr  id="cellGeoNames">
+							<td>{{'HOME.TBL_G1' | translate}}</td>
+							<td>{{'HOME.TBL_G1Name' | translate}}</td>
+							<td><a target="_blank" href="http://www.geonames.org">http://www.geonames.org</a></td>
+						</tr>
+						<tr>
+							<td>{{'HOME.TBL_G2' | translate}}</td>
+							<td>{{'HOME.TBL_G2Name' | translate}}</td>
+							<td><a target="_blank" href="http://www.openstreetmap.org">http://www.openstreetmap.org</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p>
+					{{'HOME.P1' | translate}}<br/>
+					<img src="img/globe.gif" id="imgGeonames" alt="globe" />
+					<a id="enlaceGeonames" href="http://www.geonames.org">{{'HOME.GEOLNK' | translate}}</a>
+					({{'HOME.GEOLIC' | translate}})
+					<br>
+
+				<br>
+				{{'HOME.P2' | translate}}
+				<br/>
+				<br/>
+				<ol>
+					<li>
+						{{'HOME.LI1' | translate}}
+						<br>
+						{{'HOME.LIBR1' | translate}}
+					</li>
+					<li>
+						{{'HOME.LI2' | translate}}
+						<br>
+						{{'HOME.LIBR2' | translate}}
+					</li>
+				</ol>
+				<br/>
+				<p>
+					{{'HOME.P3' | translate}}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
