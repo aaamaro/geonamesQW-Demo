@@ -1,5 +1,8 @@
 # geonamesQW-Demo
 Geonames Query Web Demo
+
+Author: Alberto Amaro
+
 According to IATI 2.01, the location the codes related with the geographical information can be extracted from the following Dictionaries: 
 
 Code | Name | URL
@@ -22,3 +25,5 @@ There are two options:
  Taking advantage of the Google Geocoder to identify a geographical name and, once the place is selected between the possibilities offered by Google, this application makes a query to the GeoNames Database to show a list of possible locations founded. 
 
 Using the Copy (Ctrl-C)-Paste (Ctrl-V) navigator options you can select a name, code or coordinate to move this information to other application or web page. 
+
+This is only a Demo version and you can do
