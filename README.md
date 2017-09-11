@@ -26,4 +26,4 @@ There are two options:
 
 Using the Copy (Ctrl-C)-Paste (Ctrl-V) navigator options you can select a name, code or coordinate to move this information to other application or web page. 
 
-This is only a Demo version and you can do
+This is only a Demo version with a limitation of queries per day.
